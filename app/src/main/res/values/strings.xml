@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">12AM</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="status_spirit">spirit</string>
+    <string name="status_infected">infected</string>
+    <string name="status_dead">dead</string>
+
+    <string name="update_dialog_message">Set monster status</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
+
+    <string name="zombie_name">Zombie</string>
+    <string name="zombie_info">Attack: Say “brains, brains, brains” and then touch opponent to turn them into a Zombie Minion.\n\n
+
+Weakness: If opponent makes a finger-gun and yells ‘headshot,’ the Zombie is
+countered.</string>
+
+
+    <string name="werewolf_name">Werewolf</string>
+    <string name="werewolf_info">Attack: Say “brains, brains, brains” and then touch opponent to turn them into an infected.\n\n
+
+Weakness: If opponent makes a finger-gun and yells ‘headshot,’ the Zombie is
+countered.
+
+</string>
+
+
+    <string name="boogeyman_name">Boogeyman</string>
+    <string name="boogeyman_info">Attack: Waits outside a closed door and places its hand on it. Any player who
+opens the door is killed.\n\n
+
+Weakness: If the opponent knocks on the door before opening, Boogeyman is
+countered.</string>
+
+
+    <string name="clown_name">Clown</string>
+    <string name="clown_info">Attack: Hides in a dark room and waits for an opponent to turn on the
+light. The Clown yells “HA HA HA” and touches the opponent in the
+same room to kill.\n\n
+
+                  	Weakness: If opponent turns the light off and yells “you’re not funny!”, the Clown
+is countered.</string>
+
+    <string name="two_players">Two Players</string>
+    <string name="three_players">Three Players</string>
+    <string name="four_players">Four Players</string>
+
+    <string name="p1_name_default">Player One</string>
+    <string name="p2_name_default">Player Two</string>
+    <string name="p3_name_default">Player Three</string>
+    <string name="p4_name_default">Player Four</string>
+
+    <string name="random_choice">Random</string>
+    <string name="player_choice">Player Choice</string>
+
+    <string name="help">
+How to Play:\n
+Attack: 	Complete this action to kill your opponents. You may only kill one monster per day. If you successfully kill an enemy monster, you are now haunted by this Spirit (see Haunt on back).\n\n
+
+Counter: 		Opponents can complete this action to counter your attacks. A counter is successful if it is completed after an attack has been initiated but before the attack is completed. If an opponent counters your attack, you may not attack that specific monster again until midnight. A successful counter does not kill the attacking monster.\n\n
+
+Special:	Some monsters have special abilities. See Special Events on back for instructions.\n\n
+
+\n\n
+Special Events:\n\n
+
+Haunt:	When you are killed, a vengeful Spirit rises from your body. As a Spirit, you may only attack the monster that killed you and only in the same area where you died.\n\n
+
+Your Spirit can be killed by any player and it cannot counter attacks. If your Spirit is killed, remove its Monster Card from the play area. Spirits cannot win the game.\n\n
+
+If your Spirit successfully kills your opponent, remove both of your Monster Cards from the play area. Your opponent does not become a Spirit.\n\n
+
+Infection:	Every monster infected by the Zombie becomes a Zombie Minion. When a monster is infected, move its Monster Card so that it is slightly touching the Zombie Monster Card.\n\n
+
+Zombie Minions have the same attack and weakness as the Zombie. They work for the Zombie and cannot kill it. Hoard other monsters to spread the infection!\n\n
+
+Unlike the Zombie, Zombie Minions die if their attack is countered. They do not become Spirits. If a Zombie Minion is killed, remove its Monster Card from the play area.\n\n
+</string>
+</resources>

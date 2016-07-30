@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="character_options">
+        <item>@string/zombie_name</item>
+        <item>@string/werewolf_name</item>
+        <item>@string/clown_name</item>
+        <item>@string/boogeyman_name</item>
+    </string-array>
+    <string-array name="number_of_players">
+        <item>@string/zombie_name</item>
+        <item>@string/werewolf_name</item>
+        <item>@string/clown_name</item>
+        <item>@string/boogeyman_name</item>
+    </string-array>
+    <string-array name="status_selection">
+        <item>@string/status_spirit</item>
+        <item>@string/status_infected</item>
+        <item>@string/status_dead</item>
+    </string-array>
+</resources>
