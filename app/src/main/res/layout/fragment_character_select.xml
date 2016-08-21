@@ -16,13 +16,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player One Name:"
+        android:text="Name:"
         android:id="@+id/Player_one_name_title" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/player_one_value"
+        android:id="@+id/player_one_name_value"
         android:text="Player one"
         android:singleLine="true"
         android:layout_gravity="center_horizontal"/>
@@ -32,13 +32,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|center"
-        android:isScrollContainer="true">
+        android:isScrollContainer="true"
+        android:id="@+id/characterSelect">
             <RadioButton android:id="@+id/boogieman_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/boogeyman_name"
                 android:layout_gravity="center|left"
-                android:checked="false"
+                android:checked="true"
                 />
             <RadioButton android:id="@+id/clown_select"
                 android:layout_width="wrap_content"
@@ -64,6 +65,7 @@
         android:layout_height="wrap_content"
         android:text="Next"
         android:id="@+id/Player_one_done"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="addNewCharacter"/>
 
 </LinearLayout>

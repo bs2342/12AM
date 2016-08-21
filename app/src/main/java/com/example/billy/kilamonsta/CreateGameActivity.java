@@ -1,25 +1,34 @@
 package com.example.billy.kilamonsta;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 /**
  * Created by Billy on 7/18/2016.
  */
-public class NumberOfPlayersActivity extends AppCompatActivity {
+public class CreateGameActivity extends AppCompatActivity {
+    GameDbHelper myDb;
+    EditText editName;
+    RadioGroup players;
     private final String LOG_TAG = HelpActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myDb = new GameDbHelper(this);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new NumberPlayersFragment())
@@ -70,19 +79,53 @@ public class NumberOfPlayersActivity extends AppCompatActivity {
 
 
     public void startNextActivity(View view){
+        Intent intent;
+
         RadioButton random = (RadioButton)findViewById(R.id.random_choice);
         RadioButton playerChoice = (RadioButton)findViewById(R.id.players_choice);
-
-        if (random.isChecked()){
-            Intent intent = new Intent(this,GameActivity.class);
-            int players=getNumberOfPlayers();
+        int players=getNumberOfPlayers();
+        String game_name = createNewGame();
+        if(game_name.equals("fail")){ //set this to "fail" for now but find better solution in case people name their game "fail"
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Game name has already been taken, please enter a new name")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                          dialog.dismiss();
+                        }
+                    });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }else{
+            if (random.isChecked()){
+                intent = new Intent(this,GameActivity.class);
+            }
+            else{
+                intent = new Intent(this,CharacterSelectActivity.class);
+            }
             intent.putExtra("numberOfPlayers",players);
+            intent.putExtra("game_name",game_name);
             startActivity(intent);
         }
-        else{
-            Intent intent = new Intent(this,CharacterSelectActivity.class);
-            startActivity(intent);
+
+
+    }
+    public String createNewGame(){
+        editName = (EditText)findViewById(R.id.game_name_value);
+        String name = editName.getText().toString();
+
+        players = (RadioGroup)findViewById(R.id.playerCount);
+        String count = ((RadioButton)findViewById(players.getCheckedRadioButtonId())).getText().toString();
+        int playerCount = Integer.parseInt(count);
+        //Toast.makeText(CreateGameActivity.this,name+" "+count, Toast.LENGTH_SHORT).show();
+        long id = myDb.insertNewGame(name, playerCount);
+        if(id == -1){
+            Toast.makeText(CreateGameActivity.this,"Game could not be created", Toast.LENGTH_LONG).show();
+            return "fail";
+        }else{
+            Toast.makeText(CreateGameActivity.this, "New game "+name+" created.", Toast.LENGTH_SHORT).show();
+            return name;
         }
+
     }
 
 
@@ -93,7 +136,7 @@ public class NumberOfPlayersActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_number_players, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_create_game, container, false);
             return rootView;
         }
     }

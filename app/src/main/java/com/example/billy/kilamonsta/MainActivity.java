@@ -12,11 +12,13 @@ import android.view.ViewGroup;
 
 
 public class MainActivity extends AppCompatActivity {
+    GameDbHelper myDb;
     private final String LOG_TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myDb = new GameDbHelper(this);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new BeginGameFragment())
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+       // getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -45,9 +47,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void startGameSetup(View view){
-        Intent intent = new Intent(this,NumberOfPlayersActivity.class);
+        Intent intent = new Intent(this,CreateGameActivity.class);
         startActivity(intent);
     }
+    public void startLoadGame(View view){
+        Intent intent = new Intent(this, LoadGameActivity.class);
+        startActivity(intent);
+    }
+
 
     public static class BeginGameFragment extends Fragment {
         public BeginGameFragment(){

@@ -16,7 +16,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new GameFragment())
+                    .add(R.id.container, new GameBoardFragment())
                     .commit();
         }
     }

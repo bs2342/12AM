@@ -4,11 +4,15 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,32 +21,49 @@
         </activity>
         <activity android:name=".HelpActivity"
                   android:label="Help"
-                  android:parentActivityName=".MainActivity">
+                  android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.billy.kilamonsta.MainActivity"/>
         </activity>
-        <activity android:name=".NumberOfPlayersActivity"
+        <activity android:name=".LoadGameActivity"
+            android:label="LoadGame"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.billy.kilamonsta.MainActivity"/>
+        </activity>
+        <activity android:name=".CreateGameActivity"
             android:label="Number Of Players"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.billy.kilamonsta.MainActivity"/>
         </activity>
         <activity android:name=".CharacterSelectActivity"
             android:label="Character Select"
-            android:parentActivityName=".NumberOfPlayersActivity">
+            android:parentActivityName=".CreateGameActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.billy.kilamonsta.MainActivity"/>
         </activity>
         <activity android:name=".GameActivity"
             android:label="Game Stat"
-            android:parentActivityName=".NumberOfPlayersActivity">
+            android:parentActivityName=".CreateGameActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.billy.kilamonsta.MainActivity"/>
         </activity>
+        <provider
+            android:authorities="com.example.billy.kilamonsta"
+            android:name="GameDbProvider"
+            android:exported="false"
+            android:syncable="true"/>
     </application>
 
 </manifest>

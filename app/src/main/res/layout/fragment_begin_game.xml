@@ -24,11 +24,20 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"
+        android:text="New Game"
         android:id="@+id/start_button"
         android:layout_alignParentTop="true"
         android:layout_gravity="center_horizontal"
         android:onClick="startGameSetup"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Game"
+        android:id="@+id/load_game"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:onClick="startLoadGame"/>
+
 
     <Button
         android:layout_width="wrap_content"
